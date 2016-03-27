@@ -7,15 +7,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg2"
-        />
 
     <LinearLayout
         android:id="@+id/linear_layout_login_activity"
+        android:background="@drawable/bg2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -111,7 +106,7 @@
                 android:inputType="textEmailAddress"
                 android:nextFocusDown="@+id/edit_text_password"
                 android:padding="@dimen/edit_text_padding"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textColorHint="@color/dark_grey"
                 android:textSize="@dimen/login_buttons_text_size" />
         </android.support.design.widget.TextInputLayout>
@@ -130,7 +125,7 @@
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:padding="@dimen/edit_text_padding"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textColorHint="@color/dark_grey"
                 android:textSize="@dimen/login_buttons_text_size" />
         </android.support.design.widget.TextInputLayout>
