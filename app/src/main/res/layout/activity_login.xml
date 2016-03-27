@@ -111,7 +111,7 @@
                 android:inputType="textEmailAddress"
                 android:nextFocusDown="@+id/edit_text_password"
                 android:padding="@dimen/edit_text_padding"
-                android:textColor="@android:color/white"
+                android:textColor="@color/primary_text"
                 android:textColorHint="@color/dark_grey"
                 android:textSize="@dimen/login_buttons_text_size" />
         </android.support.design.widget.TextInputLayout>
@@ -130,7 +130,7 @@
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:padding="@dimen/edit_text_padding"
-                android:textColor="@android:color/white"
+                android:textColor="@color/primary_text"
                 android:textColorHint="@color/dark_grey"
                 android:textSize="@dimen/login_buttons_text_size" />
         </android.support.design.widget.TextInputLayout>
@@ -140,7 +140,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_field_height"
             android:layout_marginBottom="@dimen/lv_header_text_size"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/primary_dark"
             android:onClick="onSignInPressed"
             android:text="@string/button_signin_with_password"
             android:textColor="@android:color/white" />

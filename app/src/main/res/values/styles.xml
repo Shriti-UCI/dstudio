@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
         <item name="android:switchMinWidth">50dp</item>
         <item name="android:colorBackground">#FFF</item>
         <item name="android:popupMenuStyle">@style/MenuStyle</item>
@@ -23,7 +23,7 @@
     </style>
 
     <style name="BoldPrimaryColorText" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/primary</item>
         <item name="android:textSize">22dp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -48,7 +48,7 @@
     </style>
 
     <style name="NormalAccentText" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/accent</item>
         <item name="android:textSize">14dp</item>
     </style>
 
@@ -66,7 +66,7 @@
 
     <!--Styles for sub text-->
     <style name="SubText" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/primary</item>
         <item name="android:textSize">12dp</item>
     </style>
 
@@ -79,7 +79,7 @@
     <style name="LoginCreateTextButton">
         <item name="android:textSize">@dimen/login_buttons_text_size</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/accent</item>
         <item name="android:layout_margin">2dp</item>
         <item name="android:clickable">true</item>
     </style>

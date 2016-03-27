@@ -45,6 +45,8 @@ public class GenericPhotoActivity extends BaseActivity {
     protected ImageView preview;
     protected EditText annotation;
 
+    protected String base64;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +81,7 @@ public class GenericPhotoActivity extends BaseActivity {
     private void acceptResults() {
         // Make sure that there is some data entered by the user in the note field.
         String noteData = annotation.getText().toString();
-        if (noteData == null || noteData.equals("") || noteData.trim().isEmpty()) {
+        if (noteData == null || noteData.equals("") || noteData.trim().isEmpty() || base64 == null) {
             showToast("Cannot add photo without any annotation.");
             return;
         } else {
@@ -87,24 +89,22 @@ public class GenericPhotoActivity extends BaseActivity {
             Photo photo = new Photo(
                     (float) l.latitude,
                     (float) l.longitude,
-                    getBitmapDataFromPreview(),
+                    base64,
                     noteData);
             mFirebaseWrapper.uploadPhoto(photo);
             showToast("Uploading annotated photo.");
             finish();
         }
     }
-    
 
-    private String getBitmapDataFromPreview() {
-        Bitmap bmp = ((BitmapDrawable)preview.getDrawable()).getBitmap();
+
+
+    private String getBase64FromBitmap(Bitmap b) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        bmp.recycle();
+        b.compress(Bitmap.CompressFormat.JPEG, 20, stream);
         byte[] byteArray = stream.toByteArray();
         return Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -118,6 +118,7 @@ public class GenericPhotoActivity extends BaseActivity {
             Uri photoUri = data.getData();
             Bitmap bitmap = ImageUtility.decodeSampledBitmapFromPath(photoUri.getPath(), 300, 300);
             preview.setImageBitmap(bitmap);
+            base64 = getBase64FromBitmap(bitmap);
         } else if(requestCode == REQUEST_GALLERY
                 && resultCode == RESULT_OK
                 && null != data) {
@@ -131,7 +132,9 @@ public class GenericPhotoActivity extends BaseActivity {
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             String imgDecodableString = cursor.getString(columnIndex);
             cursor.close();
-            preview.setImageBitmap(BitmapFactory.decodeFile(imgDecodableString));
+            Bitmap bitmap = BitmapFactory.decodeFile(imgDecodableString);
+            preview.setImageBitmap(bitmap);
+            base64 = getBase64FromBitmap(bitmap);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
