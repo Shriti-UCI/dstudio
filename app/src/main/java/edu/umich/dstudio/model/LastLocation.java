@@ -3,27 +3,17 @@ package edu.umich.dstudio.model;
 import java.util.Date;
 
 /**
- * Created by neera_000 on 3/26/2016.
+ * Created by neera_000 on 3/27/2016.
  */
-public class Note {
-    public String note;
-    public float latitude;
-    public float longitude;
+public class LastLocation {
+    float latitude;
+    float longitude;
     String createdTime;
 
-    public Note() {
-
-    }
-
-    public Note(String note, float latitude, float longitude) {
-        this.note = note;
+    public LastLocation(float latitude, float longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.createdTime = new Date().toString();
-    }
-
-    public String getNote() {
-        return note;
     }
 
     public float getLatitude() {
@@ -37,4 +27,5 @@ public class Note {
     public String getCreatedTime() {
         return createdTime;
     }
+
 }

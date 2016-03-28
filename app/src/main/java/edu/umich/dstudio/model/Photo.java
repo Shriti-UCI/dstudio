@@ -1,5 +1,7 @@
 package edu.umich.dstudio.model;
 
+import java.util.Date;
+
 /**
  * Created by neera_000 on 3/26/2016.
  */
@@ -8,6 +10,7 @@ public class Photo {
     public float longitude;
     public String base64Data;
     public String annotation;
+    String createdTime;
 
     public float getLatitude() {
         return latitude;
@@ -25,10 +28,15 @@ public class Photo {
         return annotation;
     }
 
+    public String getCreatedTime() {
+        return createdTime;
+    }
+
     public Photo(float latitude, float longitude, String base64Data, String annotation) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.base64Data = base64Data;
         this.annotation = annotation;
+        this.createdTime = new Date().toString();
     }
 }

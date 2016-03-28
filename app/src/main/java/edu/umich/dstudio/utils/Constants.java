@@ -15,6 +15,7 @@ public class Constants {
     public static final String FIREBASE_URL_MOODS = FIREBASE_URL + "/moods";
     public static final String FIREBASE_URL_NOTES = FIREBASE_URL + "/notes";
     public static final String FIREBASE_URL_PHOTOS = FIREBASE_URL + "/photos";
+    public static final String FIREBASE_URL_LAST_LOCATION = FIREBASE_URL + "/lastlocation";
 
 
 
@@ -37,4 +38,15 @@ public class Constants {
     public static final String KEY_ENCODED_EMAIL = "ENCODED_EMAIL";
 
     public static final String LOG_ERROR = "Error:";
+
+
+    // Prompt service related constants
+    public static final int PROMPT_SERVICE_REPEAT_MILLISECONDS = 1000 * 60 * 15;
+
+
+    // NNotification related constants
+    public static final String REMINDER_NOTIFICATION_TITLE = "DStudio Reminder";
+    public static final String REMINDER_NOTIFICATION_CONTENT = "Everyone forgets, we get that! That's why god made reminders";
+    public static final String CAN_SHOW_NOTIFICATION = "ENABLE_NOTIFICATIONS";
+
 }

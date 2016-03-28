@@ -162,7 +162,14 @@ public class BaseActivity extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
+        mSharedPref.writePreference(Constants.CAN_SHOW_NOTIFICATION, Constants.NO);
        // mSharedPref.writePreference(Constants.ID_SHAREDPREF_CANGOOFFLINE, Constants.NO);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mSharedPref.writePreference(Constants.CAN_SHOW_NOTIFICATION, Constants.YES);
     }
 
     /**

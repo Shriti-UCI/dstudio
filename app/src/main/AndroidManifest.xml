@@ -14,8 +14,14 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-
     <uses-feature android:name="android.hardware.camera2" />
+
+    <!--
+    We need permission to listen to boot_completed so that the prompt service can be restarted
+    when the phone reboots.
+    -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
 
     <application
         android:name="edu.umich.dstudio.DStudioApplication"
@@ -84,6 +90,15 @@
         <!-- Activities included from third party libraries -->
         <activity android:name="com.desmond.squarecamera.CameraActivity" />
 
+        <!-- Prompt service related objects -->
+        <receiver android:name=".prompt.StartPromptServiceOnBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".prompt.PromptService">
+
+        </service>
     </application>
 
 </manifest>

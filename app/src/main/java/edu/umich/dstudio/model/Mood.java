@@ -1,5 +1,7 @@
 package edu.umich.dstudio.model;
 
+import java.util.Date;
+
 /**
  * Created by neera_000 on 3/26/2016.
  */
@@ -17,6 +19,7 @@ public class Mood {
     /** Y Possition on 10/10 graph */
     public float energyLevel = -50;
 
+    String createdTime;
     public float latitude;
     public float longitude;
 
@@ -52,6 +55,10 @@ public class Mood {
         return longitude;
     }
 
+    public String getCreatedTime() {
+        return createdTime;
+    }
+
     public Mood() {
 
     }
@@ -66,5 +73,6 @@ public class Mood {
         this.energyLevel = energyLevel;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.createdTime = new Date().toString();
     }
 }

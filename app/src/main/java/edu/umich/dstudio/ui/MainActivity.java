@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import edu.umich.dstudio.R;
+import edu.umich.dstudio.prompt.PromptService;
 import edu.umich.dstudio.ui.addDataActivity.AddCameraPhotoActivity;
 import edu.umich.dstudio.ui.addDataActivity.AddGalleryPhotoActivity;
 import edu.umich.dstudio.ui.addDataActivity.MoodEntryActivity;
@@ -35,6 +36,12 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializeActionList();
+
+        // Start the prompt service after the user logs in.
+        // This service periodically uploads the user's location as well as
+        // checks the settings params to see if the user has set any reminders
+        // to prompt them accordingly.
+        startService(new Intent(this, PromptService.class));
     }
 
     @Override

@@ -23,9 +23,20 @@ public class FirebaseWrapper {
         mGoogleApiClient = aGoogleApiClient;
     }
 
+    private FirebaseWrapper() {
+        mGoogleApiClient = null;
+    }
+
     public static FirebaseWrapper getInstance(GoogleApiClient aGoogleApiClient) {
         if(mInstance == null) {
             mInstance = new FirebaseWrapper(aGoogleApiClient);
+        }
+        return mInstance;
+    }
+
+    public static FirebaseWrapper getInstance() {
+        if(mInstance == null) {
+            mInstance = new FirebaseWrapper();
         }
         return mInstance;
     }
@@ -52,5 +63,14 @@ public class FirebaseWrapper {
         /* Create a new node and get a random id */
         Firebase newPhotoRef = photosListRef.push();
         newPhotoRef.setValue(p);
+    }
+
+    public static void uploadLastLocation(LastLocation l) {
+        String userEmail = Utils.encodeEmail(GSharedPreferences.getInstance().getPreference(Constants.ID_SHAREDPREF_EMAIL));
+        Firebase locationListRef = new Firebase(Constants.FIREBASE_URL_LAST_LOCATION).child(userEmail);
+        /* Create a new node and get a random id */
+        Firebase newLastLocationRef = locationListRef.push();
+        newLastLocationRef.setValue(l);
+
     }
 }
