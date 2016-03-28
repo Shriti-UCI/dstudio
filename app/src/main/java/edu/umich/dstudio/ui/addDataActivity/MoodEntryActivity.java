@@ -293,7 +293,7 @@ public class MoodEntryActivity extends BaseActivity {
     public void acceptResults() {
 
         // Confirm that a mood was indeed selected.
-        if(!moodFirst.isSelected) {
+        if(!moodFirst.isCreated) {
             showToast("Please select a mood on the map above first.");
             return;
         }
