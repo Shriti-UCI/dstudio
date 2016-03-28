@@ -17,6 +17,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1037387516994-7rqrtjgobd73tor0i2ceclctn0k8s0kf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.umich.dstudio",
+            "certificate_hash": "CA0D46D4F045194F5951DF4BB358FFDAA6A62965"
+          }
+        },
+        {
           "client_id": "1037387516994-jiaopauskkv59j7rcjvo6ohgi04e6nv7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
