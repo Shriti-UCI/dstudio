@@ -4,8 +4,8 @@
     tools:context=".ui.BaseActivity">
     <item
         android:id="@+id/action_logout"
-        android:orderInCategory="100"
+        app:showAsAction="always"
         android:title="@string/action_logout"
-        android:visible="true"
-        app:showAsAction="withText" />
+        android:icon="@drawable/logout">
+    </item>
 </menu>
