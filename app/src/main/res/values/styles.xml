@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@android:color/white</item>
         <item name="android:switchMinWidth">50dp</item>
         <item name="android:colorBackground">#FFF</item>
         <item name="android:popupMenuStyle">@style/MenuStyle</item>
