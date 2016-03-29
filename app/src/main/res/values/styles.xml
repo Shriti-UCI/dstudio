@@ -106,4 +106,9 @@
         <item name="android:popupBackground">@color/black</item>
     </style>
 
+    <style name="PreferencesTheme">
+        <item name="android:windowBackground">@drawable/bg2</item>
+        <item name="android:background">@drawable/bg2</item>
+    </style>
+
 </resources>
