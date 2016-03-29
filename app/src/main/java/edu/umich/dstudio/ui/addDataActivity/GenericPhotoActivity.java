@@ -114,7 +114,9 @@ public class GenericPhotoActivity extends BaseActivity {
 
         // There are two types of media that are requested, either from Camera, or from Gallery.
         //Each of them have their own ways of rendering the selected/taken image.
-        if (requestCode == REQUEST_CAMERA) {
+        if (requestCode == REQUEST_CAMERA
+                && resultCode == RESULT_OK
+                && null != data) {
             Uri photoUri = data.getData();
             Bitmap bitmap = ImageUtility.decodeSampledBitmapFromPath(photoUri.getPath(), 300, 300);
             preview.setImageBitmap(bitmap);

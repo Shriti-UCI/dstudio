@@ -69,6 +69,7 @@ public class BaseActivity extends AppCompatActivity implements
 
     // Permission related variables
     protected static final int FINE_LOCATION = 100;
+    protected  static final int CAMERA = 101;
     protected View mLayout;
 
     @Override
@@ -234,11 +235,38 @@ public class BaseActivity extends AppCompatActivity implements
                         })
                         .show();
             } else {
-
                 // Location permission has not been granted yet. Request it directly.
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         FINE_LOCATION);
+            }
+
+            if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                    != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                        Manifest.permission.CAMERA)) {
+
+                    Log.i("MainActivity",
+                            "Displaying camera permission rationale to provide additional context.");
+
+                    Snackbar.make(mLayout, R.string.squarecamera__request_write_storage_permission_text,
+                            Snackbar.LENGTH_INDEFINITE)
+                            .setAction(R.string.ok, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    ActivityCompat.requestPermissions(BaseActivity.this,
+                                            new String[]{Manifest.permission.CAMERA},
+                                            CAMERA);
+                                }
+                            })
+                            .show();
+                } else {
+
+                    // Location permission has not been granted yet. Request it directly.
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.CAMERA},
+                            CAMERA);
+                }
             }
         }
     }
