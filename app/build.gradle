@@ -54,4 +54,6 @@ dependencies {
 
     /** Third party libraries for some UI stuff */
     compile 'com.github.boxme:squarecamera:1.1.0'
+    compile 'com.github.tittojose:timerangepicker-library:0.2'
+
 }

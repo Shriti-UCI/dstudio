@@ -207,4 +207,7 @@
     <string name="text_login_via">Login using:</string>
     <string name="permission_location_rationale">The app needs location for context</string>
     <string name="ok">OK</string>
+
+    <!--new time range picker additions-->
+    <string name="title_activity_time_range_selecter">TimeRangeSelecterActivity</string>
 </resources>
